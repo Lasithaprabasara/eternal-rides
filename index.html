@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Rides — Luxury Wedding Car Rental</title>
+    <meta name="description" content="Make your wedding day unforgettable with Eternal Rides. Premium luxury car rentals featuring Rolls Royce, Bentley, Mercedes & more. Professional chauffeur service included.">
+    <meta property="og:title" content="Eternal Rides — Luxury Wedding Car Rental">
+    <meta property="og:description" content="Premium luxury wedding car rentals. Rolls Royce, Bentley, Mercedes & more.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-ring loader-ring--2"></div>
+            <span class="loader-text">Eternal Rides</span>
+        </div>
+    </div>
+
+    <!-- ===== THREE.JS CANVAS (fixed background) ===== -->
+    <canvas id="hero-canvas"></canvas>
+
+    <!-- ===== CUSTOM CURSOR ===== -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">
+            <span class="logo-icon">✦</span>
+            <span class="logo-text">Eternal Rides</span>
+        </a>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#fleet" class="nav-link">Our Fleet</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+            <li><a href="#pricing" class="nav-link">Packages</a></li>
+        </ul>
+
+        <a href="#contact" class="nav-cta" id="nav-cta">Book Now</a>
+
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+            <svg class="theme-icon theme-icon--dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="theme-icon theme-icon--light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ===== NAV MOBILE OVERLAY ===== -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle" data-animate="fade-up">
+                <span class="subtitle-line"></span>
+                Luxury Wedding Car Rental
+                <span class="subtitle-line"></span>
+            </p>
+            <h1 class="hero-title" data-animate="split-text">
+                <span class="title-line">Arrive in</span>
+                <span class="title-line title-line--accent">Elegance</span>
+            </h1>
+            <p class="hero-description" data-animate="fade-up">
+                Make your special day truly unforgettable with our handpicked fleet of luxury vehicles, professional chauffeurs, and bespoke wedding car services.
+            </p>
+            <div class="hero-cta-group" data-animate="fade-up">
+                <a href="#fleet" class="btn btn-primary">
+                    <span>Explore Fleet</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <span>Get a Quote</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-scroll-indicator" data-animate="fade-up">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+
+        <!-- Decorative elements -->
+        <div class="hero-deco hero-deco--1"></div>
+        <div class="hero-deco hero-deco--2"></div>
+        <div class="hero-deco hero-deco--3"></div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about section">
+        <div class="container">
+            <p class="section-label" data-animate="fade-up">Our Story</p>
+            <h2 class="section-title" data-animate="fade-up">
+                Crafting <em>Unforgettable</em> Moments Since 2010
+            </h2>
+
+            <div class="about-grid">
+                <div class="about-text" data-animate="fade-up">
+                    <p>At Eternal Rides, we believe your wedding day deserves nothing less than perfection. For over a decade, we've been curating extraordinary experiences for couples who understand that every detail matters.</p>
+                    <p>From the moment your chauffeur opens the door to the instant you arrive at your venue, every second is choreographed to make you feel like royalty. Our fleet of meticulously maintained luxury vehicles and our team of professional chauffeurs ensure your journey is as magical as your destination.</p>
+                </div>
+
+                <div class="about-visual" data-animate="fade-up">
+                    <div class="about-image-frame">
+                        <div class="about-image-glow"></div>
+                        <div class="about-rings-3d" id="about-rings"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-stats" data-animate="fade-up">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="2500">0</span>
+                    <span class="stat-suffix">+</span>
+                    <span class="stat-label">Happy Couples</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="15">0</span>
+                    <span class="stat-suffix">+</span>
+                    <span class="stat-label">Years of Service</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="30">0</span>
+                    <span class="stat-suffix">+</span>
+                    <span class="stat-label">Luxury Vehicles</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="100">0</span>
+                    <span class="stat-suffix">%</span>
+                    <span class="stat-label">Satisfaction Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FLEET SECTION ===== -->
+    <section id="fleet" class="fleet section">
+        <div class="container">
+            <p class="section-label" data-animate="fade-up">Our Collection</p>
+            <h2 class="section-title" data-animate="fade-up">
+                The Finest <em>Fleet</em> for Your Day
+            </h2>
+        </div>
+
+        <div class="fleet-wrapper">
+            <div class="fleet-track" id="fleet-track">
+
+                <div class="fleet-card" data-tilt>
+                    <div class="fleet-card-image">
+                        <img src="assets/images/rolls_royce.png" alt="Rolls Royce Phantom" loading="lazy">
+                        <div class="fleet-card-badge">Most Popular</div>
+                    </div>
+                    <div class="fleet-card-info">
+                        <h3 class="fleet-card-name">Rolls Royce Phantom</h3>
+                        <p class="fleet-card-tagline">The Epitome of Luxury</p>
+                        <div class="fleet-card-details">
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 4 Passengers</span>
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Available</span>
+                        </div>
+                        <div class="fleet-card-price">
+                            <span class="price-from">from</span>
+                            <span class="price-amount">$500</span>
+                            <span class="price-period">/day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fleet-card" data-tilt>
+                    <div class="fleet-card-image">
+                        <img src="assets/images/mercedes.png" alt="Mercedes-Benz S-Class" loading="lazy">
+                    </div>
+                    <div class="fleet-card-info">
+                        <h3 class="fleet-card-name">Mercedes S-Class</h3>
+                        <p class="fleet-card-tagline">Refined Excellence</p>
+                        <div class="fleet-card-details">
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 4 Passengers</span>
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Available</span>
+                        </div>
+                        <div class="fleet-card-price">
+                            <span class="price-from">from</span>
+                            <span class="price-amount">$350</span>
+                            <span class="price-period">/day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fleet-card" data-tilt>
+                    <div class="fleet-card-image">
+                        <img src="assets/images/bentley.png" alt="Bentley Continental GT" loading="lazy">
+                    </div>
+                    <div class="fleet-card-info">
+                        <h3 class="fleet-card-name">Bentley Continental</h3>
+                        <p class="fleet-card-tagline">Timeless Sophistication</p>
+                        <div class="fleet-card-details">
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 4 Passengers</span>
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Available</span>
+                        </div>
+                        <div class="fleet-card-price">
+                            <span class="price-from">from</span>
+                            <span class="price-amount">$450</span>
+                            <span class="price-period">/day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fleet-card" data-tilt>
+                    <div class="fleet-card-image">
+                        <img src="assets/images/vintage_car.png" alt="Vintage Rolls Royce Silver Cloud" loading="lazy">
+                        <div class="fleet-card-badge">Classic</div>
+                    </div>
+                    <div class="fleet-card-info">
+                        <h3 class="fleet-card-name">Vintage Silver Cloud</h3>
+                        <p class="fleet-card-tagline">Nostalgic Grandeur</p>
+                        <div class="fleet-card-details">
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 3 Passengers</span>
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Available</span>
+                        </div>
+                        <div class="fleet-card-price">
+                            <span class="price-from">from</span>
+                            <span class="price-amount">$600</span>
+                            <span class="price-period">/day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fleet-card" data-tilt>
+                    <div class="fleet-card-image">
+                        <img src="assets/images/audi.png" alt="Audi A8 L" loading="lazy">
+                    </div>
+                    <div class="fleet-card-info">
+                        <h3 class="fleet-card-name">Audi A8 L</h3>
+                        <p class="fleet-card-tagline">Modern Prestige</p>
+                        <div class="fleet-card-details">
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 4 Passengers</span>
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Available</span>
+                        </div>
+                        <div class="fleet-card-price">
+                            <span class="price-from">from</span>
+                            <span class="price-amount">$300</span>
+                            <span class="price-period">/day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fleet-card" data-tilt>
+                    <div class="fleet-card-image">
+                        <img src="assets/images/range_rover.png" alt="Range Rover Autobiography" loading="lazy">
+                    </div>
+                    <div class="fleet-card-info">
+                        <h3 class="fleet-card-name">Range Rover</h3>
+                        <p class="fleet-card-tagline">Commanding Presence</p>
+                        <div class="fleet-card-details">
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 5 Passengers</span>
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Available</span>
+                        </div>
+                        <div class="fleet-card-price">
+                            <span class="price-from">from</span>
+                            <span class="price-amount">$400</span>
+                            <span class="price-period">/day</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="fleet-nav">
+            <button class="fleet-nav-btn" id="fleet-prev" aria-label="Previous car">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <div class="fleet-dots" id="fleet-dots"></div>
+            <button class="fleet-nav-btn" id="fleet-next" aria-label="Next car">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- ===== 3D CAR SHOWCASE (Scroll-Driven) ===== -->
+    <section id="car-showcase" class="car-showcase section">
+        <div class="container">
+            <p class="section-label" data-animate="fade-up">Experience</p>
+            <h2 class="section-title" data-animate="fade-up">
+                Feel the <em>Journey</em>
+            </h2>
+        </div>
+
+        <div class="showcase-stage">
+            <div class="showcase-road">
+                <div class="road-lines"></div>
+            </div>
+
+            <div class="showcase-car-wrapper" id="showcase-car-wrapper">
+                <div class="showcase-car" id="showcase-car">
+                    <img src="assets/images/rolls_royce.png" alt="Rolls Royce Phantom 3D Showcase" id="showcase-car-img">
+                    <div class="showcase-car-shadow"></div>
+                    <div class="showcase-car-reflection"></div>
+                </div>
+            </div>
+
+            <div class="showcase-particles" id="showcase-particles"></div>
+
+            <div class="showcase-specs" id="showcase-specs">
+                <div class="showcase-spec" data-delay="0">
+                    <span class="spec-value">6.75L</span>
+                    <span class="spec-label">V12 Engine</span>
+                </div>
+                <div class="showcase-spec" data-delay="1">
+                    <span class="spec-value">563</span>
+                    <span class="spec-label">Horsepower</span>
+                </div>
+                <div class="showcase-spec" data-delay="2">
+                    <span class="spec-value">5.4s</span>
+                    <span class="spec-label">0-60 mph</span>
+                </div>
+                <div class="showcase-spec" data-delay="3">
+                    <span class="spec-value">★★★★★</span>
+                    <span class="spec-label">Guest Rating</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="showcase-selector" id="showcase-selector">
+            <button class="showcase-btn active" data-car="rolls_royce" data-name="Rolls Royce Phantom">Phantom</button>
+            <button class="showcase-btn" data-car="mercedes" data-name="Mercedes S-Class">S-Class</button>
+            <button class="showcase-btn" data-car="bentley" data-name="Bentley Continental">Continental</button>
+            <button class="showcase-btn" data-car="vintage_car" data-name="Vintage Silver Cloud">Silver Cloud</button>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services" class="services section">
+        <div class="container">
+            <p class="section-label" data-animate="fade-up">What We Offer</p>
+            <h2 class="section-title" data-animate="fade-up">
+                Bespoke <em>Services</em> for Your Day
+            </h2>
+
+            <div class="services-grid">
+                <div class="service-card" data-animate="fade-up" data-tilt>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="8" r="5"/>
+                            <path d="M20 21a8 8 0 0 0-16 0"/>
+                            <path d="M12 13v3"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Professional Chauffeur</h3>
+                    <p class="service-card-text">Impeccably dressed, highly trained chauffeurs who ensure a smooth, punctual, and elegant experience from start to finish.</p>
+                    <div class="service-card-glow"></div>
+                </div>
+
+                <div class="service-card" data-animate="fade-up" data-tilt>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 3c-1.2 0-2.4.6-3 1.7A3.6 3.6 0 0 0 4.6 9c-1 .6-1.6 1.8-1.6 3 0 2 1.8 3.6 4 3.6h10c2.2 0 4-1.6 4-3.6 0-1.2-.6-2.4-1.6-3A3.6 3.6 0 0 0 15 4.7C14.4 3.6 13.2 3 12 3z"/>
+                            <path d="M12 15v6"/>
+                            <path d="M8 18h8"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Car Decoration</h3>
+                    <p class="service-card-text">Exquisite floral arrangements, ribbons, and bespoke decorations tailored to match your wedding theme and color palette.</p>
+                    <div class="service-card-glow"></div>
+                </div>
+
+                <div class="service-card" data-animate="fade-up" data-tilt>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+                            <circle cx="12" cy="13" r="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Photo Package</h3>
+                    <p class="service-card-text">Capture stunning moments with our partner photographers who specialize in luxury automotive and wedding photography.</p>
+                    <div class="service-card-glow"></div>
+                </div>
+
+                <div class="service-card" data-animate="fade-up" data-tilt>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Red Carpet Service</h3>
+                    <p class="service-card-text">The complete VIP experience with red carpet arrival, champagne service, and a dedicated coordinator for your journey.</p>
+                    <div class="service-card-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section id="testimonials" class="testimonials section">
+        <div class="container">
+            <p class="section-label" data-animate="fade-up">Love Stories</p>
+            <h2 class="section-title" data-animate="fade-up">
+                What Our <em>Couples</em> Say
+            </h2>
+        </div>
+
+        <div class="testimonials-marquee">
+            <div class="testimonials-track">
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <blockquote class="testimonial-text">"The Rolls Royce Phantom was absolutely breathtaking. Our chauffeur James was incredible — punctual, professional, and so kind. It made our arrival at the church truly magical."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">S&M</div>
+                        <div>
+                            <span class="testimonial-name">Sarah & Michael</span>
+                            <span class="testimonial-role">Wedding – June 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <blockquote class="testimonial-text">"We chose the vintage Silver Cloud and it was the perfect touch for our classic-themed wedding. The decoration team matched our blush and ivory palette beautifully."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">E&J</div>
+                        <div>
+                            <span class="testimonial-name">Emma & James</span>
+                            <span class="testimonial-role">Wedding – September 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <blockquote class="testimonial-text">"From booking to the big day, the entire experience was flawless. The Bentley Continental looked stunning in our photos. Worth every penny!"</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">R&A</div>
+                        <div>
+                            <span class="testimonial-name">Rachel & Andrew</span>
+                            <span class="testimonial-role">Wedding – April 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <blockquote class="testimonial-text">"The red carpet service was a dream. Our guests were amazed when we stepped out of the Mercedes S-Class. The champagne toast in the car was the cherry on top!"</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">L&D</div>
+                        <div>
+                            <span class="testimonial-name">Laura & David</span>
+                            <span class="testimonial-role">Wedding – December 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <blockquote class="testimonial-text">"We booked 3 cars for our bridal party and everything was coordinated perfectly. The attention to detail was extraordinary. Highly recommend Eternal Rides!"</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">N&T</div>
+                        <div>
+                            <span class="testimonial-name">Nina & Thomas</span>
+                            <span class="testimonial-role">Wedding – August 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <blockquote class="testimonial-text">"Eternal Rides made us feel like royalty on our wedding day. The Range Rover was immaculate, and our driver went above and beyond. Absolutely fantastic service."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">P&K</div>
+                        <div>
+                            <span class="testimonial-name">Priya & Kevin</span>
+                            <span class="testimonial-role">Wedding – February 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== USER REVIEWS SECTION ===== -->
+    <section id="reviews" class="reviews section">
+        <div class="container">
+            <p class="section-label" data-animate="fade-up">Share Your Story</p>
+            <h2 class="section-title" data-animate="fade-up">
+                Leave a <em>Review</em>
+            </h2>
+            <p class="section-subtitle" data-animate="fade-up">Had an amazing experience? We'd love to hear from you.</p>
+
+            <div class="reviews-content">
+                <form class="review-form" id="review-form" data-animate="fade-up">
+                    <div class="review-form-header">
+                        <div class="review-rating-input" id="review-rating-input">
+                            <span class="review-rating-label">Your Rating</span>
+                            <div class="star-input">
+                                <button type="button" class="star-btn" data-star="1" aria-label="1 star">★</button>
+                                <button type="button" class="star-btn" data-star="2" aria-label="2 stars">★</button>
+                                <button type="button" class="star-btn" data-star="3" aria-label="3 stars">★</button>
+                                <button type="button" class="star-btn" data-star="4" aria-label="4 stars">★</button>
+                                <button type="button" class="star-btn" data-star="5" aria-label="5 stars">★</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reviewName">Your Name</label>
+                            <input type="text" id="reviewName" class="form-input" placeholder="e.g. Sarah & Michael" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewVehicle">Vehicle Used</label>
+                            <select id="reviewVehicle" class="form-input form-select">
+                                <option value="">Select vehicle</option>
+                                <option value="Rolls Royce Phantom">Rolls Royce Phantom</option>
+                                <option value="Mercedes S-Class">Mercedes S-Class</option>
+                                <option value="Bentley Continental">Bentley Continental</option>
+                                <option value="Vintage Silver Cloud">Vintage Silver Cloud</option>
+                                <option value="Audi A8 L">Audi A8 L</option>
+                                <option value="Range Rover">Range Rover</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewText">Your Experience</label>
+                        <textarea id="reviewText" class="form-input form-textarea" placeholder="Tell us about your experience..." rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="review-submit-btn">
+                        <span>Submit Review</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </button>
+                </form>
+
+                <div class="user-reviews-list" id="user-reviews-list">
+                    <h3 class="reviews-list-title">Recent Reviews</h3>
+                    <div id="reviews-container">
+                        <!-- User reviews will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING SECTION ===== -->
+    <section id="pricing" class="pricing section">
+        <div class="container">
+            <p class="section-label" data-animate="fade-up">Packages</p>
+            <h2 class="section-title" data-animate="fade-up">
+                Choose Your <em>Experience</em>
+            </h2>
+            <p class="section-subtitle" data-animate="fade-up">Every package includes a professional chauffeur, complimentary beverages, and our signature wedding coordination service.</p>
+
+            <div class="pricing-grid">
+
+                <div class="pricing-card" data-animate="fade-up">
+                    <div class="pricing-tier">Silver</div>
+                    <div class="pricing-price">
+                        <span class="pricing-currency">$</span>
+                        <span class="pricing-amount" data-count="299">0</span>
+                    </div>
+                    <p class="pricing-desc">Perfect for intimate ceremonies</p>
+                    <ul class="pricing-features">
+                        <li><span class="check">✓</span> 1 Luxury Vehicle</li>
+                        <li><span class="check">✓</span> Professional Chauffeur</li>
+                        <li><span class="check">✓</span> 4 Hours Coverage</li>
+                        <li><span class="check">✓</span> Complimentary Drinks</li>
+                        <li><span class="check">✓</span> Basic Decoration</li>
+                        <li class="muted"><span class="cross">—</span> Red Carpet Service</li>
+                        <li class="muted"><span class="cross">—</span> Photography Package</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline pricing-cta">Select Package</a>
+                </div>
+
+                <div class="pricing-card pricing-card--featured" data-animate="fade-up">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-tier">Gold</div>
+                    <div class="pricing-price">
+                        <span class="pricing-currency">$</span>
+                        <span class="pricing-amount" data-count="499">0</span>
+                    </div>
+                    <p class="pricing-desc">The complete wedding experience</p>
+                    <ul class="pricing-features">
+                        <li><span class="check">✓</span> 2 Luxury Vehicles</li>
+                        <li><span class="check">✓</span> Professional Chauffeurs</li>
+                        <li><span class="check">✓</span> 8 Hours Coverage</li>
+                        <li><span class="check">✓</span> Premium Champagne</li>
+                        <li><span class="check">✓</span> Premium Decoration</li>
+                        <li><span class="check">✓</span> Red Carpet Service</li>
+                        <li class="muted"><span class="cross">—</span> Photography Package</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary pricing-cta">Select Package</a>
+                    <div class="pricing-card-shimmer"></div>
+                </div>
+
+                <div class="pricing-card" data-animate="fade-up">
+                    <div class="pricing-tier">Platinum</div>
+                    <div class="pricing-price">
+                        <span class="pricing-currency">$</span>
+                        <span class="pricing-amount" data-count="799">0</span>
+                    </div>
+                    <p class="pricing-desc">The ultimate luxury experience</p>
+                    <ul class="pricing-features">
+                        <li><span class="check">✓</span> 3 Luxury Vehicles</li>
+                        <li><span class="check">✓</span> Professional Chauffeurs</li>
+                        <li><span class="check">✓</span> Full Day Coverage</li>
+                        <li><span class="check">✓</span> Vintage Champagne</li>
+                        <li><span class="check">✓</span> Bespoke Decoration</li>
+                        <li><span class="check">✓</span> Red Carpet + VIP Service</li>
+                        <li><span class="check">✓</span> Photography Package</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline pricing-cta">Select Package</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <p class="section-label" data-animate="fade-up">Get In Touch</p>
+            <h2 class="section-title" data-animate="fade-up">
+                Book Your <em>Dream Ride</em>
+            </h2>
+
+            <div class="contact-grid">
+                <form class="contact-form" id="contact-form" data-animate="fade-up">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" class="form-input" placeholder="Your first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" class="form-input" placeholder="Your last name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" class="form-input" placeholder="+1 (555) 000-0000">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="weddingDate">Wedding Date</label>
+                            <input type="date" id="weddingDate" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleSelect">Preferred Vehicle</label>
+                            <select id="vehicleSelect" class="form-input form-select">
+                                <option value="">Select a vehicle</option>
+                                <option value="phantom">Rolls Royce Phantom</option>
+                                <option value="sclass">Mercedes S-Class</option>
+                                <option value="continental">Bentley Continental</option>
+                                <option value="vintage">Vintage Silver Cloud</option>
+                                <option value="a8">Audi A8 L</option>
+                                <option value="rangerover">Range Rover</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-input form-textarea" placeholder="Tell us about your dream wedding journey..." rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+                        <span>Send Enquiry</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2z"/></svg>
+                    </button>
+                </form>
+
+                <div class="contact-info" data-animate="fade-up">
+                    <div class="contact-info-card">
+                        <h3>Let's Plan Your Perfect Day</h3>
+                        <p>Our wedding specialists are available 7 days a week to help you plan every detail of your luxury transportation.</p>
+
+                        <div class="contact-info-items">
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div>
+                                    <span class="info-label">Call Us</span>
+                                    <span class="info-value">+1 (555) 123-4567</span>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div>
+                                    <span class="info-label">Email Us</span>
+                                    <span class="info-value">hello@eternalrides.com</span>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div>
+                                    <span class="info-label">Visit Us</span>
+                                    <span class="info-value">123 Luxury Lane, Beverly Hills, CA</span>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                </div>
+                                <div>
+                                    <span class="info-label">Hours</span>
+                                    <span class="info-value">Mon–Sun: 9AM – 8PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Pinterest">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4"/><path d="M12 16l-2 6"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TikTok">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo footer-logo">
+                        <span class="logo-icon">✦</span>
+                        <span class="logo-text">Eternal Rides</span>
+                    </a>
+                    <p class="footer-tagline">Making every journey as memorable as your destination.</p>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#fleet">Our Fleet</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Packages</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                        <li><a href="#">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Eternal Rides. All rights reserved.</p>
+                <p>Crafted with <span class="heart">♥</span> for unforgettable moments</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP BUTTON ===== -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+
+    <!-- ===== CHATBOT WIDGET ===== -->
+    <div class="chatbot" id="chatbot">
+        <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Open chat">
+            <svg class="chatbot-icon chatbot-icon--chat" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <svg class="chatbot-icon chatbot-icon--close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span class="chatbot-badge">1</span>
+        </button>
+
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <div class="chatbot-avatar">✦</div>
+                    <div>
+                        <span class="chatbot-name">Eternal Rides Assistant</span>
+                        <span class="chatbot-status">● Online</span>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbot-close" aria-label="Close chat">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+
+            <div class="chatbot-messages" id="chatbot-messages">
+                <!-- Messages will be inserted here -->
+            </div>
+
+            <div class="chatbot-quick-replies" id="chatbot-quick-replies">
+                <button class="quick-reply" data-msg="What cars do you have?">Our Fleet</button>
+                <button class="quick-reply" data-msg="How much does it cost?">Pricing</button>
+                <button class="quick-reply" data-msg="How do I book?">Booking</button>
+                <button class="quick-reply" data-msg="Do you offer decorations?">Decorations</button>
+            </div>
+
+            <form class="chatbot-input" id="chatbot-input-form">
+                <input type="text" id="chatbot-input" class="chatbot-input-field" placeholder="Ask us anything..." autocomplete="off">
+                <button type="submit" class="chatbot-send" aria-label="Send message">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2z"/></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/three-scene.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
